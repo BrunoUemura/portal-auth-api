@@ -1,9 +1,9 @@
-import '../config/EnvConfig';
 import express from 'express';
 import cors from 'cors';
 import logger from 'morgan';
-import { routes } from '../routes';
-import { errorHandler } from '../../shared/error/ErrorHandler';
+import '@src/infra/config/EnvConfig';
+import { routes } from '@src/infra/routes';
+import { errorHandler } from '@src/util/error/ErrorHandler';
 
 const server = express();
 

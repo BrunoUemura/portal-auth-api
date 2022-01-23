@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
-import UserSignIn from '../core/usecase/user/UserSignIn';
-import { PreReqValidation } from '../core/usecase/validation/PreReqValidation';
-import UserRepositoryPostgreSQL from '../infra/database/postgres/repository/UserRepositoryPostgreSQL';
+import RequestValidation from '@src/validation/RequestValidation';
+import UserSignIn from '@src/core/usecase/user/UserSignIn';
+import UserRepositoryPostgreSQL from '@src/infra/database/postgres/repository/UserRepositoryPostgreSQL';
 
 export default class SignInController {
   static async handle(
@@ -10,7 +10,7 @@ export default class SignInController {
     next: NextFunction,
   ) {
     try {
-      await PreReqValidation.execute(request);
+      await RequestValidation.validate(request);
 
       const { username, password } = request.body;
       const userRepositoryPostgreSQL = new UserRepositoryPostgreSQL();

@@ -1,9 +1,9 @@
 import bcrypt from 'bcrypt';
-import { v4 as uuid } from 'uuid';
-import { BadRequestError } from '../../../shared/error/BadRequestError';
-import { IUserSignUp } from '../../interface/UserInterfaces';
-import UserRepository from '../../repository/UserRepository';
-import PublishMessage from '../rabbitmq/PublishMessage';
+import crypto from 'crypto';
+import { BadRequestError } from '@src/util/error/BadRequestError';
+import { IUserSignUp } from '@src/core/interface/UserInterfaces';
+import UserRepository from '@src/core/repository/UserRepository';
+import PublishMessage from '@src/core/usecase/rabbitmq/PublishMessage';
 
 export default class UserSignUp {
   private userRepository: UserRepository;
@@ -19,7 +19,7 @@ export default class UserSignUp {
       throw new BadRequestError('User already registered');
     }
 
-    const id = uuid();
+    const id = crypto.randomUUID();
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const user = await this.userRepository.insert(

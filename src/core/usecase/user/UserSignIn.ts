@@ -1,9 +1,9 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import { NotFoundError } from '../../../shared/error/NotFoundError';
-import { UnauthorizedError } from '../../../shared/error/UnauthorizedError';
-import { IUserSignIn } from '../../interface/UserInterfaces';
-import UserRepository from '../../repository/UserRepository';
+import { NotFoundError } from '@src/util/error/NotFoundError';
+import { UnauthorizedError } from '@src/util/error/UnauthorizedError';
+import { IUserSignIn } from '@src/core/interface/UserInterfaces';
+import UserRepository from '@src/core/repository/UserRepository';
 
 export default class UserSignIn {
   private userRepository: UserRepository;

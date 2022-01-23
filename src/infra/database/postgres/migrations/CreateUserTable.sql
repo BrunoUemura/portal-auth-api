@@ -1,9 +1,10 @@
 CREATE TABLE users (
-    id varchar(255) NOT NULL,
-    username varchar(255) NOT NULL,
-    email varchar(255) NOT NULL,
-    password varchar(255) NOT NULL,
-    created_at timestamp NOT NULL,
-    updated_at timestamp NOT NULL,
+    id VARCHAR(50) NOT NULL,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE,
+  	password VARCHAR(100) NOT NULL,
+    created_at TIMESTAMP,
+    updated_at TIMESTAMP,
+
     PRIMARY KEY (id)
 );

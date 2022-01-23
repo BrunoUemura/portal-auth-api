@@ -1,8 +1,8 @@
 import { Request } from 'express';
-import { BadRequestError } from '../../../shared/error/BadRequestError';
+import { BadRequestError } from '@src/util/error/BadRequestError';
 
-export class PreReqValidation {
-  public static async execute(req: Request) {
+export default class RequestValidation {
+  public static async validate(req: Request) {
     try {
       this.paramsValidation(req);
     } catch (error) {

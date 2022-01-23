@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import SignUpController from '../../controller/SignUpController';
-import SignInController from '../../controller/SignInController';
+import SignUpController from '@src/controller/SignUpController';
+import SignInController from '@src/controller/SignInController';
 
 const auth = Router();
 

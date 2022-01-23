@@ -1,9 +1,9 @@
-import { HttpStatusCodes } from '../enum/HttpStatusCodes';
-import { CustomError } from './CustomError';
+import { HttpStatusCodes } from '@src/util/enum/HttpStatusCodes';
+import { CustomError } from '@src/util/error/CustomError';
 
 export class DatabaseConnectionError extends CustomError {
   statusCode = HttpStatusCodes.INTERNAL_SERVER_ERROR;
-  reason = 'Error connecting to database';
+  message = 'Error connecting to database';
 
   constructor() {
     super('Error connecting to database');

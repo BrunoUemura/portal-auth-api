@@ -1,5 +1,5 @@
-import RabbitmqServer from '../../../infra/queue/rabbitmq/RabbitmqServer';
-import { IUserSignUp } from '../../interface/UserInterfaces';
+import RabbitmqServer from '@src/infra/queue/rabbitmq/RabbitmqServer';
+import { IUserSignUp } from '@src/core/interface/UserInterfaces';
 
 export default class PublishMessage {
   static async execute(queue: string, message: IUserSignUp) {

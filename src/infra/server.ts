@@ -1,4 +1,6 @@
-import { server } from './http/ServerConfig';
+import 'dotenv/config';
+import '../util/module-alias';
+import { server } from '@src/infra/http/ServerConfig';
 
 const PORT = process.env.PORT || 5000;
 
